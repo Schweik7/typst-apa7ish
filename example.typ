@@ -1,4 +1,4 @@
-#import "template.typ": *
+#import "apa7.typ": *
 
 // Take a look at the file `template.typ` in the file panel
 // to customize this template and discover how it works.
@@ -23,21 +23,18 @@
   // Insert your abstract after the colon, wrapped in brackets.
   // Example: `abstract: [This is my abstract...]`
   abstract: [Title of a scientific paper is an important element that conveys the main message of the study to the readers. 
-  In this study, we investigate the impact of paper titles on citation count, and propose that the title alone has the highest impact on citation count. 
-  Using a dataset of 1000 scientific papers from various disciplines, we analyzed the correlation between the characteristics of paper titles, 
-  such as length, clarity, novelty, and citation count. Our results show that papers with clear, 
-  concise, and novel titles tend to receive more citations than those with longer or less informative titles. 
-  Moreover, we found that papers with creative and attention-grabbing titles tend to attract more readers and 
-  citations, which supports our hypothesis that the title alone has the highest impact on citation count. 
-  Our findings suggest that researchers should pay more attention to crafting effective titles that accurately 
-  and creatively summarize the main message of their research, as it can have a significant impact on the success 
-  and visibility of their work.
+
 ],
-  date: "March 28, 2023",
+  // date: "March 28, 2023",
   keywords: [content analysis, citation, bibliometrics]
 )
-
+// #show rest:columns(2,rest)
 = Introduction
+11
+== level 2
+asfdafdsa
+
+== asdfadf
 
 Title of a scientific paper is an important element [@teixeira2015importance] that conveys the main message of the study to the readers [@hartley2019academic]. 
 In this study, we investigate the impact of paper titles on citation count, and propose that the title alone has the highest impact on citation count. 
@@ -54,6 +51,6 @@ and visibility of their work.
 #label("declaration-of-interest-statement")
 The authors report there are no competing interests to declare.
 
-#pagebreak()
+// #pagebreak()
 
 #bibliography("example.bib")
