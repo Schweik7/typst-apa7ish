@@ -59,7 +59,7 @@
       number
       it.body
       v(normal-size, weak: true)
-      } else {
+      } else { // 其他级别的标题
       v(11pt, weak: true)
       number
       let styled = if it.level == 2 { strong } else { emph }
@@ -144,7 +144,8 @@
 
   align(center)[
     #for affiliation in authors_parsed.affiliations [
-      #super(affiliation_counter.display("a"))#h(1pt)#emph(affiliation) #affiliation_counter.step() \ // 这段代码
+      #affiliation_counter.step()
+      #super(affiliation_counter.display("a"))#h(1pt)#emph(affiliation)  \ // 这段代码
     ]
     #v(1em, weak: true)
     #date
