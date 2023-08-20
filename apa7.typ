@@ -4,7 +4,7 @@
 #let normal-size = 11pt
 #let large-size = 12pt
 
-//  project是定义了整个模板的函数
+
 #let project(
   title: "",
   subtitle: none,
@@ -20,10 +20,9 @@
   body,
 ) = {
   // Set the document's basic properties.
-  // 使用map函数，把authors结构体映射为了author的名字
-  set document(author: authors.map(a => a.name), title: title) 
-  set page(numbering: "1",  // 定义了如何呈现页码。如果使用1/1就会变成1/39（总页码数）这样的,2/39
-            number-align: center,// 页码居中
+  set document(author: authors.map(a => a.name), title: title)
+  set page(numbering: "1", 
+            number-align: center,
             paper: papersize,
             margin: 33mm)
   set text(font: fontfamily, 
@@ -38,7 +37,7 @@
   show heading: it => {
     // Create the heading numbering.
     let number = if it.numbering != none {
-      counter(heading).display(it.numbering) // counter函数计数，将得到当前标题的级别；number变量是序号
+      counter(heading).display(it.numbering)
       h(7pt, weak: true)
     }
 
@@ -46,15 +45,15 @@
     // The other ones are run-in.
     set text(size: normal-size, weight: "bold")
     set par(first-line-indent: 0pt)
-    if it.level == 1 { // 一级标题
-      set align(center) // 居中
+    if it.level == 1 {
+      set align(center)
       set text(size: normal-size)
       v(15pt, weak: true)
       number
       it.body
       v(normal-size, weak: true)
-    } else if it.level == 2 { // 二级标题
-      set text(size: normal-size) //没有align属性，所以是居左
+    } else if it.level == 2 {
+      set text(size: normal-size)
       v(normal-size, weak: true)
       number
       it.body
@@ -90,7 +89,7 @@
   // "authors" (modified author array)
   // "affiliations": array with unique affiliations
   let parse_authors(authors) = {
-    let affiliations = () // 单位列表
+    let affiliations = ()
     let parsed_authors = ()
     let corresponding = ()
     let pos = 0
@@ -99,14 +98,14 @@
         if author.affiliation not in affiliations {
           affiliations.push(author.affiliation)
         }
-        pos = affiliations.position(a => a == author.affiliation) // position 是类似于filter的定位函数
+        pos = affiliations.position(a => a == author.affiliation)
         author.insert("affiliation_parsed", pos)
       } else {
         // if author has no affiliation, just use the same as the previous author
         author.insert("affiliation_parsed", pos)
       }
       parsed_authors.push(author)
-      if "corresponding" in author { // corresponding属性定义了谁是联系人
+      if "corresponding" in author {
         if author.corresponding {
           corresponding = author
         }
@@ -124,8 +123,7 @@
   }
 
   let authors_parsed = parse_authors(authors)
-  // authors_parsed.pairs().join[  ]
-  // authors_parsed.value(0)
+
   // List Authors
   pad(
     top: 0.3em,
@@ -135,17 +133,16 @@
       columns: (1fr,) * calc.min(3, authors_parsed.authors.len()),
       gutter: 1em,
       ..authors_parsed.authors.map(author => align(center)[
-        #author.name#super[#number2letter(author.affiliation_parsed)] \ // 作者姓名，右上角是单位编号
+        #author.name#super[#number2letter(author.affiliation_parsed)] \
       ]),
     ),
   )
 
-  let affiliation_counter = counter("affiliation_counter") // 新建了一个counter。参数是全局上识别counter的
+  let affiliation_counter = counter("affiliation_counter")
 
   align(center)[
     #for affiliation in authors_parsed.affiliations [
-      #affiliation_counter.step()
-      #super(affiliation_counter.display("a"))#h(1pt)#emph(affiliation)  \ // 这段代码有误，应该是counter的原因。counter在第一次使用的时候是0，需要先step
+      #super(affiliation_counter.display("a"))#h(1pt)#emph(affiliation) #affiliation_counter.step() \
     ]
     #v(1em, weak: true)
     #date
@@ -201,6 +198,5 @@
   set par(justify: true,
           first-line-indent: 2em)
 
-  show:rest=>columns(2,rest)
   body
 }
