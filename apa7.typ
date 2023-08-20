@@ -146,6 +146,7 @@
     #for affiliation in authors_parsed.affiliations [
       #affiliation_counter.step()
       #super(affiliation_counter.display("a"))#h(1pt)#emph(affiliation)  \ // 这段代码有误，应该是counter的原因。counter在第一次使用的时候是0，需要先step
+    ]
     #v(1em, weak: true)
     #date
     #v(2em, weak: true)

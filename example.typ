@@ -1,5 +1,5 @@
 #import "apa7.typ": *
-
+#import "@preview/tablex:0.0.5": tablex, cellx
 // Take a look at the file `template.typ` in the file panel
 // to customize this template and discover how it works.
 #show: project.with(
@@ -52,5 +52,49 @@ and visibility of their work.
 The authors report there are no competing interests to declare.
 
 // #pagebreak()
+
+#import "@preview/tablex:0.0.5": tablex, rowspanx, colspanx
+
+#tablex(
+  columns: 4,
+  align: center + horizon,
+  auto-vlines: false,
+
+  // indicate the first two rows are the header
+  // (in case we need to eventually
+  // enable repeating the header across pages)
+  header-rows: 2,
+
+  // color the last column's cells
+  // based on the written number
+  map-cells: cell => {
+    if cell.x == 3 and cell.y > 1 {
+      cell.content = {
+        let value = int(cell.content.text)
+        let text-color = if value < 10 {
+          red.lighten(30%)
+        } else if value < 15 {
+          yellow.darken(13%)
+        } else {
+          green
+        }
+        set text(text-color)
+        strong(cell.content)
+      }
+    }
+    cell
+  },
+
+  /* --- header --- */
+  rowspanx(2)[*Username*], colspanx(2)[*Data*], (), rowspanx(2)[*Score*],
+  (),                 [*Location*], [*Height*], (),
+  /* -------------- */
+
+  [John], [Second St.], [180 cm], [5],
+  [Wally], [Third Av.], [160 cm], [10],
+  [Jason], [Some St.], [150 cm], [15],
+  [Robert], [123 Av.], [190 cm], [20],
+  [Other], [Unknown St.], [170 cm], [25],
+)
 
 #bibliography("example.bib")
