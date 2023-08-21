@@ -28,7 +28,8 @@
   // date: "March 28, 2023",
   keywords: [content analysis, citation, bibliometrics]
 )
-// #show rest:columns(2,rest)
+#show:rest=>columns(2,rest)
+
 = Introduction
 11
 == level 2
@@ -53,11 +54,14 @@ The authors report there are no competing interests to declare.
 
 // #pagebreak()
 
-\
+@meng_table 很美丽
+#show:rest=>rest
+
 
 #import "@preview/tablex:0.0.5": tablex, rowspanx, colspanx
+#set par(justify: true,
+          first-line-indent: 0em)
 
-@meng_table 很美丽
 #figure(
   tablex(
     columns:4,
@@ -65,6 +69,7 @@ The authors report there are no competing interests to declare.
     // auto-vlines:false,
     auto-lines:false,
     header-rows:1,
+    repeat-header:true,
     hlinex(stroke:black+1pt),
     // vlinex(),
     [11],[22],[33],[44],
@@ -75,9 +80,10 @@ The authors report there are no competing interests to declare.
     [1],[2],[3],[4],
     hlinex(stroke:1pt)
   ),
-  caption: [这是一个表格标题],
-  supplement: [表格],
-  outlined: true
+  caption: [this is title of a table],
+  supplement: [Table],
+  outlined: true,
+  // caption-pos: top // 标题的位置参数只有top或者bottom，因此需要自定义
 )<meng_table>
   
 
@@ -117,4 +123,11 @@ The authors report there are no competing interests to declare.
   [c], rowspanx(2)[d], [ed],
   [f], (),             [g]
 )
+#set par(justify: true,
+          first-line-indent: 2em)
+== asdfasdf
+
+Title of a scientific paper is an important element @teixeira2015importance that conveys the main message of the study to the readers @hartley2019academic. 
+In this study, we investigate the impact of paper titles on citation count, and propose that the title alone has the highest impact on citation count. 
+
 #bibliography("example.bib")

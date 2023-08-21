@@ -17,7 +17,7 @@
   language: "en",
   fontfamily: "Linux Libertine",
   papersize: "a4",
-  body,
+  body, // 在调用的
 ) = {
   // Set the document's basic properties.
   // 使用map函数，把authors结构体映射为了author的名字
@@ -198,9 +198,21 @@
   pagebreak()
 
   // Main body.
-  set par(justify: true,
-          first-line-indent: 2em)
 
-  show:rest=>columns(2,rest)
+show figure: it => {
+  set par(justify: true,
+          first-line-indent: 0em)
+  align(start)[
+    #it.supplement#it.counter.display(it.numbering)\
+    #emph[
+      #it.caption 
+    ]
+    #v(10pt, weak: true)
+  ]
+  align(center)[#it.body]
+}
+set par(justify: true,
+          first-line-indent: 2em)
+  // show:rest=>columns(2,rest)
   body
 }
