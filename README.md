@@ -2,8 +2,7 @@
 
 [Typst](https://typst.app/) Template that (mostly) complies with APA7 Style (Work in Progress).
 
-The template does not follow all recommendations by the APA Manual, especially when the suggestions break with typographic conventions (such as double line spacing :vomiting_face:). Instead, the goal of this template is that it generates you a high-quality manuscript that has all the important components of the APA7 format, but is aesthetically pleasing.
-
+尝试为mrwunderbar666/typst-apa7ish的模板做一些完善
 # Work in Progress
 
 The following works already quite well:
