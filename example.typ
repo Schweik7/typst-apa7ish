@@ -28,10 +28,11 @@
   // date: "March 28, 2023",
   keywords: [content analysis, citation, bibliometrics]
 )
-#show:rest=>{
-  columns(2,rest)
-}
-#show figure: fig=>fig
+// #show:rest=>{
+//   columns(2,rest)
+// }
+
+// #show figure: columns.with(1)
 = Introduction
 11
 == level 2
@@ -76,51 +77,58 @@ The authors report there are no competing interests to declare.
   caption: [this is title of a table],
   supplement: [Table],
   outlined: true,
+  // placement: auto
+  placement: bottom,
   // caption-pos: top // 标题的位置参数只有top或者bottom，因此需要自定义
 )
 
 below is the figure\
 
-#repr(my_fig)
+// #repr(my_fig)
+#my_fig
 // #my_fig<meng_table>
   
 #assert(1 < 2, message: "math broke") // 如果fail将无法编译，输出message
 // #panic("this is wrong") panic也是直接报错
-
-#tablex(
-  columns: 4,
-  align: center + horizon,
-  auto-vlines: false,
-  header-rows: 2, // 表明标题行数，可能用于重复标题行
-  repeat-header: true,
-  // color the last column's cells
-  // based on the written number
-
-  /* --- header --- */
-  rowspanx(2)[*Username*], colspanx(2)[*Data*], (), rowspanx(2)[*Score*],
-  (),                 [*Location*], [*Height*], (),
-  /* -------------- */
-
-  [John], [Second St.], [180 cm], [5],
-  [Wally], [Third Av.], [160 cm], [10],
-  [Jason], [Some St.], [150 cm], [15],
-  [Robert], [123 Av.], [190 cm], [20],
-  [Other], [Unknown St.], [170 cm], [25],
+#figure(
+  placement: bottom,
+  caption: [A glacier],
+  image("glacier.jpg", width: 40%),
 )
-#tablex(
-  columns: 3,
-  colspanx(2)[a], (),  [b],
-  [c], rowspanx(2)[d], [ed],
-  [f], (),             [g]
-)
-#tablex(
-  columns: 3,
-  map-hlines: h => (..h, stroke: blue),
-  map-vlines: v => (..v, stroke: green + 2pt),
-  colspanx(2)[a], (),  [b],
-  [c], rowspanx(2)[d], [ed],
-  [f], (),             [g]
-)
+// #tablex(
+//   columns: 4,
+//   align: center + horizon,
+//   auto-vlines: false,
+//   header-rows: 2, // 表明标题行数，可能用于重复标题行
+//   repeat-header: true,
+//   // color the last column's cells
+//   // based on the written number
+
+//   /* --- header --- */
+//   rowspanx(2)[*Username*], colspanx(2)[*Data*], (), rowspanx(2)[*Score*],
+//   (),                 [*Location*], [*Height*], (),
+//   /* -------------- */
+
+//   [John], [Second St.], [180 cm], [5],
+//   [Wally], [Third Av.], [160 cm], [10],
+//   [Jason], [Some St.], [150 cm], [15],
+//   [Robert], [123 Av.], [190 cm], [20],
+//   [Other], [Unknown St.], [170 cm], [25],
+// )
+// #tablex(
+//   columns: 3,
+//   colspanx(2)[a], (),  [b],
+//   [c], rowspanx(2)[d], [ed],
+//   [f], (),             [g]
+// )
+// #tablex(
+//   columns: 3,
+//   map-hlines: h => (..h, stroke: blue),
+//   map-vlines: v => (..v, stroke: green + 2pt),
+//   colspanx(2)[a], (),  [b],
+//   [c], rowspanx(2)[d], [ed],
+//   [f], (),             [g]
+// )
 #set par(justify: true,
           first-line-indent: 2em)
 == asdfasdf
