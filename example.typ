@@ -28,8 +28,11 @@
   // date: "March 28, 2023",
   keywords: [Situational Depression Testing, Ecological Systems Theory, Cognitive Behavior Therapy, Big Data, ChatGPT]
 )
-#show:rest=>columns(2,rest)
+// #show:rest=>{
+//   columns(2,rest)
+// }
 
+// #show figure: columns.with(1)
 = Introduction
 // 引出研究背景:介绍抑郁症在中国青少年和年轻人中的流行现状;
 // 阐述问题:现有抑郁测验对中国人群的适用性与效度存在局限;
@@ -124,22 +127,21 @@ Trends in (not) using scales in major depression: A categorization and clinical 
 == asdfadf
 
 
-
 = Declaration of Interest Statement
 #label("declaration-of-interest-statement")
 The authors report there are no competing interests to declare.
 
 // #pagebreak()
 
-@meng_table 很美丽
-#show:rest=>rest
+// @meng_table 很美丽
+
 
 
 #import "@preview/tablex:0.0.5": tablex, rowspanx, colspanx
 #set par(justify: true,
           first-line-indent: 0em)
 
-#figure(
+#let my_fig=figure(
   tablex(
     columns:4,
     align:center+horizon,
@@ -160,46 +162,58 @@ The authors report there are no competing interests to declare.
   caption: [this is title of a table],
   supplement: [Table],
   outlined: true,
+  // placement: auto
+  placement: bottom,
   // caption-pos: top // 标题的位置参数只有top或者bottom，因此需要自定义
-)<meng_table>
+)
+
+below is the figure\
+
+// #repr(my_fig)
+#my_fig
+// #my_fig<meng_table>
   
-
-
-见@meng_table 所示
-#tablex(
-  columns: 4,
-  align: center + horizon,
-  auto-vlines: false,
-  header-rows: 2, // 表明标题行数，可能用于重复标题行
-  repeat-header: true,
-  // color the last column's cells
-  // based on the written number
-
-  /* --- header --- */
-  rowspanx(2)[*Username*], colspanx(2)[*Data*], (), rowspanx(2)[*Score*],
-  (),                 [*Location*], [*Height*], (),
-  /* -------------- */
-
-  [John], [Second St.], [180 cm], [5],
-  [Wally], [Third Av.], [160 cm], [10],
-  [Jason], [Some St.], [150 cm], [15],
-  [Robert], [123 Av.], [190 cm], [20],
-  [Other], [Unknown St.], [170 cm], [25],
+#assert(1 < 2, message: "math broke") // 如果fail将无法编译，输出message
+// #panic("this is wrong") panic也是直接报错
+#figure(
+  placement: bottom,
+  caption: [A glacier],
+  image("glacier.jpg", width: 40%),
 )
-#tablex(
-  columns: 3,
-  colspanx(2)[a], (),  [b],
-  [c], rowspanx(2)[d], [ed],
-  [f], (),             [g]
-)
-#tablex(
-  columns: 3,
-  map-hlines: h => (..h, stroke: blue),
-  map-vlines: v => (..v, stroke: green + 2pt),
-  colspanx(2)[a], (),  [b],
-  [c], rowspanx(2)[d], [ed],
-  [f], (),             [g]
-)
+// #tablex(
+//   columns: 4,
+//   align: center + horizon,
+//   auto-vlines: false,
+//   header-rows: 2, // 表明标题行数，可能用于重复标题行
+//   repeat-header: true,
+//   // color the last column's cells
+//   // based on the written number
+
+//   /* --- header --- */
+//   rowspanx(2)[*Username*], colspanx(2)[*Data*], (), rowspanx(2)[*Score*],
+//   (),                 [*Location*], [*Height*], (),
+//   /* -------------- */
+
+//   [John], [Second St.], [180 cm], [5],
+//   [Wally], [Third Av.], [160 cm], [10],
+//   [Jason], [Some St.], [150 cm], [15],
+//   [Robert], [123 Av.], [190 cm], [20],
+//   [Other], [Unknown St.], [170 cm], [25],
+// )
+// #tablex(
+//   columns: 3,
+//   colspanx(2)[a], (),  [b],
+//   [c], rowspanx(2)[d], [ed],
+//   [f], (),             [g]
+// )
+// #tablex(
+//   columns: 3,
+//   map-hlines: h => (..h, stroke: blue),
+//   map-vlines: v => (..v, stroke: green + 2pt),
+//   colspanx(2)[a], (),  [b],
+//   [c], rowspanx(2)[d], [ed],
+//   [f], (),             [g]
+// )
 #set par(justify: true,
           first-line-indent: 2em)
 == asdfasdf
