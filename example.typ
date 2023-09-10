@@ -28,9 +28,7 @@
   // date: "March 28, 2023",
   keywords: [Situational Depression Testing, Ecological Systems Theory, Cognitive Behavior Therapy, Big Data, ChatGPT]
 )
-// #show:rest=>{
-//   columns(2,rest)
-// }
+
 
 // #show figure: columns.with(1)
 = Introduction
@@ -50,6 +48,8 @@ Depression among adolescents and young adults is increasingly recognized as a no
 
 
 当前常用的抑郁评估量表包括：根据抑郁症状和诊断标准，(自评) Self-rating Depression Scale @zung1965selfrating; Beck Depression Inventory-Ⅱ @beckaaront1996manual; Center for Epidemiological Studies-Depression @radloff1977cesd 成人抑郁筛查和严重程度评估
+\
+测一下apa的#apacite("beckaaront1996manual")
 
 
 (他评) Hamilton Depression Rating Scale @hamilton1960rating 针对确诊患者开发，用于评估抑郁治疗效果
@@ -64,7 +64,7 @@ SCL-90 症状自评量表 (SymptomChecklist Subscales for Depression) @Derogatis
 
 
 The patient health questionnaire for adolescents
-适用于7-17岁儿童的Children's Depression Inventory @kovacs1985child @kovacs2015children 适用于
+适用于7-17岁儿童的Children's Depression Inventory #apacite("kovacs1985child","kovacs2015children") 适用于
 
 
 
@@ -219,6 +219,8 @@ below is the figure\
 == asdfasdf
 
 Title of a scientific paper is an important element @teixeira2015importance that conveys the main message of the study to the readers @hartley2019academic. 
+我测试一下apa格式下的book
+#apacite("hartley2019academic")
 In this study, we investigate the impact of paper titles on citation count, and propose that the title alone has the highest impact on citation count. 
 
 #bibliography("example.bib")
