@@ -60,11 +60,11 @@ SCL-90 症状自评量表 (SymptomChecklist Subscales for Depression) @Derogatis
 
 适用于成年群体
 抑郁诊断标准更新；不同心理问题的症状存在交叉；症状难以区分，没有结合人们日常的情境，受过专业训练的普通人有着各自的理解，
-
+Further validation of the Cognitive Biases Questionnaire for psychosis
 
 
 The patient health questionnaire for adolescents
-适用于7-17岁儿童的Children's Depression Inventory @kovacs1985child @kovacs2015children 适用于
+适用于7-17岁儿童的Children's Depression Inventory @kovacs1985child @kovacs2011children 
 
 
 
