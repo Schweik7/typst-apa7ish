@@ -28,11 +28,9 @@
   // date: "March 28, 2023",
   keywords: [Situational Depression Testing, Ecological Systems Theory, Cognitive Behavior Therapy, Big Data, ChatGPT]
 )
-// #show:rest=>{
-//   columns(2,rest)
-// }
-
-// #show figure: columns.with(1)
+#show:rest=>{
+  columns(2,rest)
+}
 = Introduction
 // 引出研究背景:介绍抑郁症在中国青少年和年轻人中的流行现状;
 // 阐述问题:现有抑郁测验对中国人群的适用性与效度存在局限;

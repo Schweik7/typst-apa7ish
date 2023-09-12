@@ -240,6 +240,3 @@ set par(justify: true,
   // show:rest=>columns(2,rest)
   body
 }
-#show:rest=>{
-  columns(2,rest)
-}
