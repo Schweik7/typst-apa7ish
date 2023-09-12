@@ -4,6 +4,30 @@
 #let normal-size = 11pt
 #let large-size = 12pt
 
+#let apacite(..authors, brackets: true, date: true) = {
+    if brackets [(] else []
+    authors.pos().map(a => { // 对每一个作者映射操作
+        show regex(" \d+"): v => { // 筛选年份
+            if date {
+                if brackets [,#v] else { // 为年份前面加一个逗号
+                    show " ": vv => []
+                    [ (#v)]
+                }
+            } else []
+        }
+        show ", n.d.": v => {
+            if date {
+                if brackets [#v] else [ (n.d.)]
+            } else []
+        }
+        cite(a, brackets: false, style: "chicago-author-date")
+    }).join("; ", last: "; ") // 对每一个作者操作后加一个分号
+    if brackets [)] else []
+}
+// #apacite("example", "exampleNoDate", "example") 
+// #apacite("example", brackets: false)
+// #apacite("example", date: false, brackets: false)
+
 //  project是定义了整个模板的函数
 #let project(
   title: "",
@@ -215,4 +239,7 @@ set par(justify: true,
           first-line-indent: 2em)
   // show:rest=>columns(2,rest)
   body
+}
+#show:rest=>{
+  columns(2,rest)
 }
