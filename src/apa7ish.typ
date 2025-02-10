@@ -101,7 +101,7 @@
   show bibliography: set par(first-line-indent: 0em) // 悬挂缩进
 
   // === 图表格式 - APA要求 ===
-  show figure: set block(above: 2em, below: 2em)  // 图表前后间距
+  // show figure: set block(above: 2em, below: 2em)  // 图表前后间距
   
   // === 表格格式 ===
   set table(stroke: 0pt)  // 默认无边框
@@ -109,13 +109,13 @@
   show table: set text(number-type: "lining", number-width: "tabular")
   
   // 图表标题格式 - APA要求标题在上方
-  set figure.caption(position: top) 
-  show figure.caption: self => [
-      #align(left)[
-      *#self.supplement*
-      #context [*#self.counter.display(self.numbering)*] \ #self.body ]
-      #v(6pt)
-    ]
+  // set figure.caption(position: top) 
+  // show figure.caption: self => [
+  //     #align(left)[
+  //     *#self.supplement*
+  //     #context [*#self.counter.display(self.numbering)*] \ #self.body ]
+  //     #v(6pt)
+  //   ]
 
   // === 标题页设置 - APA7格式 ===
   align(center)[

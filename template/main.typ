@@ -1,7 +1,8 @@
 // #import "@preview/apa7-ish:0.2.0": *
 #import "../src/apa7ish.typ": *
-#import "@preview/cuti:0.3.0": show-cn-fakebold
+#import "@preview/cuti:0.3.0": show-cn-fakebold,fakeitalic,show-cn-fakeitalic
 #show: show-cn-fakebold
+#show: show-cn-fakeitalic // 参考文献中需要用斜体
 #show: conf.with(
   title: "融合AI和VR技术的学业情绪识别与认知促进研究",
   // subtitle: "The impact of a good title on a paper's citations count",
@@ -151,7 +152,27 @@ AI和VR技术的创新应用场景不够具体
 = Declaration of Interest Statement
 #label("declaration-of-interest-statement")
 The authors report there are no competing interests to declare.
-
+Normal text &测试 and &中文
+元分析
 #pagebreak()
 
-#bibliography("example.bib")
+
+// 更精确的参考文献匹配
+// 限制作用域
+#show <references>: it => {
+  // 处理 & 和空格
+  show regex("& \\p{sc=Hani}+"): lit => {
+    lit.text.slice(2)
+  }
+  
+  // 处理以中文开头的整行
+  show regex("^\\p{sc=Hani}[^\n]*"): lit => {
+    "["+ lit.text + "]"
+  }
+  
+  it
+}
+
+#bibliography("example.bib", style: "apa.csl")
+#<references>
+
